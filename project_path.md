@@ -38,6 +38,12 @@ touch README.md \
 cargo build
 ```
 
+## install extension manually
+
+- prettier
+- rust-analyser
+- code-spell-checker
+
 ## install evcxr_jupyter
 
 [evcxr_jupyter](https://github.com/evcxr/evcxr/blob/main/evcxr_jupyter/README.md)
@@ -48,7 +54,29 @@ cargo install evcxr_jupyter
 evcxr_jupyter --install
 # reload the vscode ide complete
 
+```
+
+## add nessery dependencies
+
+```bash
+sudo apt update
+sudo apt upgrade --Yes 
+sudo apt install --Yes pkg-config libfreetype6-dev libfontconfig1-dev
+```
+
+## add plotter
+
+```bash
+
+cargo add plotters
 cargo add csv
+
+```
+## builf project
+
+```
+cargo build
+cargo update
 
 ```
 
