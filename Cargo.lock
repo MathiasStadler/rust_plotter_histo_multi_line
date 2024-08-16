@@ -814,6 +814,7 @@ dependencies = [
 name = "rust_plotter_histo_multi_line"
 version = "0.1.0"
 dependencies = [
+ "chrono",
  "csv",
  "plotters",
  "rustfmt",
