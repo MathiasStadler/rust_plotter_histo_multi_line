@@ -64,4 +64,4 @@ fn get_data() -> Vec<(&'static str, &'static str, f32, f32, f32)> {
     ];
 }
 
-// cargo run --example
+// cargo run --example plotters_5_3_x_stock_example

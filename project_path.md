@@ -38,6 +38,12 @@ touch README.md \
 cargo build
 ```
 
+## add cargo-watch#
+
+```bash
+cargo install cargo-watch
+```
+
 ## install extension manually
 
 - prettier

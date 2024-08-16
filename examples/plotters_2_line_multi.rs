@@ -4,7 +4,8 @@
 use plotters::prelude::*;
 
 fn main() {
-    let root_area = BitMapBackend::new("images/2.10_multi_line.png", (600, 400)).into_drawing_area();
+    let root_area =
+        BitMapBackend::new("images/2.10_multi_line.png", (600, 400)).into_drawing_area();
     root_area.fill(&WHITE).unwrap();
 
     let mut ctx = ChartBuilder::on(&root_area)
@@ -21,12 +22,12 @@ fn main() {
     let data_two = [27, 31, 17, 37, 47, 37, 37, 18, 8, 27];
 
     // Draw the histogram
-    // ctx.draw_series((0..).zip(data.iter()).map(|(x, y)| {
-    //     let mut bar = Rectangle::new([(x, 0), (x + 1, *y)], GREEN.filled());
-    //     bar.set_margin(0, 0, 5, 5);
-    //     bar
-    // }))
-    // .unwrap();
+    ctx.draw_series((0..).zip(data.iter()).map(|(x, y)| {
+        let mut bar = Rectangle::new([(x, 0), (x + 1, *y)], GREEN.filled());
+        bar.set_margin(0, 0, 5, 5);
+        bar
+    }))
+    .unwrap();
 
     // Draw the line series
     ctx.draw_series(LineSeries::new(
@@ -41,5 +42,4 @@ fn main() {
         &BLUE,
     ))
     .unwrap();
-
 }

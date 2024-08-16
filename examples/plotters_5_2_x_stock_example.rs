@@ -7,7 +7,7 @@ use chrono::{Date, Duration, ParseError, NaiveTime};
 use chrono::offset::{Local, TimeZone};
 use plotters::prelude::*;
 
-fn parse_datetime(t: &str) -> Date<Local> {
+fn parse_datetime(t: &str) -> NaiveDate {
     Local
         .datetime_from_str(&format!("{} 0:0", t), "%Y-%m-%d %H:%M")
         .unwrap()
@@ -21,9 +21,12 @@ fn parse_time(t: &str) -> Result<Duration, ParseError> {
     };
 }
 
+
+
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let data = get_data();
-    let root = BitMapBackend::new("images/5_stock-example.png", (1024, 768)).into_drawing_area();
+    let root = BitMapBackend::new("images/5_1_stock-example.png", (1024, 768)).into_drawing_area();
     root.fill(&WHITE)?;
 
     let (from_date, to_date) = (
@@ -64,4 +67,11 @@ fn get_data() -> Vec<(&'static str, &'static str, f32, f32, f32)> {
     ];
 }
 
-// cargo run --example
+fn get_data_ohlcv() -> Vec<(&'static str,  f32, f32, f32,f32,i32)> {
+    return vec![
+        ("2024-08-13",59.49,61.68,59.43,61.42,1494238),
+        ("2024-08-14",61.94,62.62,60.365,60.46,1017821),
+        ("2024-08-15",61.73,64.3,61.28,63.75,1678198),
+    ];
+}
+// cargo run --example plotters_5_2_x_stock_example

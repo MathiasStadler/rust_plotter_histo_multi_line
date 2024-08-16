@@ -3,27 +3,36 @@
 
 // #![feature(allocator_api)]
 
-use chrono::{Date, Duration, ParseError, NaiveTime};
+use chrono::{NaiveDate, Duration, ParseError, NaiveTime};
 use chrono::offset::{Local, TimeZone};
 use plotters::prelude::*;
 
-fn parse_datetime(t: &str) -> Date<Local> {
+fn parse_datetime(t: &str) -> NaiveDate {
     Local
         .datetime_from_str(&format!("{} 0:0", t), "%Y-%m-%d %H:%M")
         .unwrap()
         .date()
 }
 
+// fn parse_time(t: &str) -> Result<Duration, ParseError> {
+//     return match Local.datetime_from_str(&format!("2020-01-01 0:{}", t), "%Y-%m-%d %H:%M:%S%.f") {
+//         Ok(date) => Ok(date.time().signed_duration_since(NaiveTime::from_hms(0, 0, 0))),
+//         Err(e) => { println!("{}", e); Err(e) },
+//     };
+// }
+
+// from_hms_opt()
 fn parse_time(t: &str) -> Result<Duration, ParseError> {
-    return match Local.datetime_from_str(&format!("2020-01-01 0:{}", t), "%Y-%m-%d %H:%M:%S%.f") {
+    return match Local.from_hms_opt().(&format!("2020-01-01 0:{}", t), "%Y-%m-%d %H:%M:%S%.f") {
         Ok(date) => Ok(date.time().signed_duration_since(NaiveTime::from_hms(0, 0, 0))),
         Err(e) => { println!("{}", e); Err(e) },
     };
 }
 
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let data = get_data();
-    let root = BitMapBackend::new("images/5_stock-example.png", (1024, 768)).into_drawing_area();
+    let root = BitMapBackend::new("images/5_1_stock-example.png", (1024, 768)).into_drawing_area();
     root.fill(&WHITE)?;
 
     let (from_date, to_date) = (
