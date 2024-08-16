@@ -1,11 +1,13 @@
 {
     "cSpell.words": [
         "builf",
+        "datetime",
         "evcxr",
         "histo",
         "libfontconfig",
         "libfreetype",
         "nessery",
-        "rustfmt"
+        "rustfmt",
+        "Timelike"
     ]
 }
