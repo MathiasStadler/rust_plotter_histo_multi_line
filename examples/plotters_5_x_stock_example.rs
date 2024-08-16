@@ -63,3 +63,5 @@ fn get_data() -> Vec<(&'static str, &'static str, f32, f32, f32)> {
         ("2019-04-25", "10:43.9", 12.0, 128.8300, 129.1500),
     ];
 }
+
+// cargo run --example

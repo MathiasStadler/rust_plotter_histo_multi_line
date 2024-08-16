@@ -5,7 +5,7 @@ use plotters::prelude::*;
 // use chrono::{Utc, TimeZone};
 // use chrono::offset;
 
-use chrono::{Date, Duration, ParseError, NaiveTime};
+use chrono::{ Duration, ParseError, NaiveTime};
 use chrono::offset::{Utc,Local, TimeZone};
 use chrono::Timelike;
 
@@ -48,3 +48,5 @@ fn main() {
 
 }
 const DATA: [f64; 14] = [ 137.24, 136.37, 138.43, 137.41, 139.69, 140.41, 141.58, 139.55, 139.68, 139.10, 138.24, 135.67, 137.12, 138.12];
+
+// cargo run --example plotters_4_date_x_axis_second
