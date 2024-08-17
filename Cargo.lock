@@ -2204,6 +2204,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "rust_decimal_macros"
+version = "1.35.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a05bf7103af0797dbce0667c471946b29b9eaea34652eff67324f360fec027de"
+dependencies = [
+ "quote",
+ "rust_decimal",
+]
+
+[[package]]
 name = "rust_plotter_histo_multi_line"
 version = "0.1.0"
 dependencies = [
@@ -2214,6 +2224,7 @@ dependencies = [
  "plotters",
  "rand 0.8.5",
  "rust_decimal",
+ "rust_decimal_macros",
  "rustfmt",
 ]
 

@@ -1,5 +1,23 @@
 
-use rust_decimal::Decimal;
+
+
+use crate::stock_market::stock_market::StockData;
+use chrono::{DateTime, NaiveDateTime, TimeZone, Utc};
+use rand::Rng;
+use rust_decimal::{
+    prelude::{FromPrimitive, ToPrimitive},
+    Decimal,
+};
+use rust_decimal_macros::dec;
+
+#[cfg(test)]
+use crate::stock_market::stock_market::*;
+
+fn generate_utc_date_from_date_string(date_string: &str) -> DateTime<Utc> {
+    let day_one = NaiveDateTime::parse_from_str(date_string, "%m-%d-%Y %H:%M").unwrap();
+    Utc.from_utc_datetime(&day_one)
+}
+
 
 fn generate_stock_data(date_string: &str) -> StockData {
     let base_stock_data_series = vec![

@@ -1,3 +1,22 @@
+use std::{error::Error, fs};
+
+use chrono::{prelude::*, Duration};
+use plotters::{
+    prelude::{
+        BitMapBackend, CandleStick, ChartBuilder, IntoDrawingArea, PathElement, SeriesLabelPosition,
+    },
+    series::LineSeries,
+    style::{
+        full_palette::{ORANGE, PURPLE},
+        Color, IntoFont, RGBColor, BLUE, GREEN, RED, WHITE,
+    },
+};
+use rust_decimal::{
+    prelude::{FromPrimitive, ToPrimitive},
+    Decimal,
+};
+use rust_decimal_macros::dec;
+
 // net_change and net_change_percent will be computed.
 #[derive(Debug)]
 pub struct StockData {
