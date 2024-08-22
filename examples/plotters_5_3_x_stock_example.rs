@@ -31,8 +31,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         parse_datetime(&data[data.len() - 1].0) + Duration::days(1),
     );
 
-    let y_min = parse_time("9:30.0").unwrap();
-    let y_max = parse_time("13:00.0").unwrap();
+    
 
     let mut chart = ChartBuilder::on(&root)
         .x_label_area_size(40)
